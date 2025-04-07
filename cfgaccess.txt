@@ -15,6 +15,5 @@ exit
 interface 1/1/2-1/1/5
 no routing
 vlan access 20
-ipv6 source-lockdown
 no shutdown
 exit
