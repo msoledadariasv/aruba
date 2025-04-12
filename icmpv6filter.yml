@@ -1,4 +1,4 @@
-name: aruba
+name: icmpv6
 mgmt:
   network: custom_mgmt                # management network name
   ipv4-subnet: 172.80.80.0/24       # ipv4 range
@@ -16,7 +16,7 @@ topology:
             
     arubaaccess:
       kind: aruba_aoscx 
-      image: vrnetlab/aruba_arubaos-cx:20210610000730
+      image: vrnetlab/aruba_arubaos-cx:20240731173624
       startup-config: cfgaccess.txt
      
       #ports:
