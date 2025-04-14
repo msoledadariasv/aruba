@@ -1,11 +1,8 @@
 conf t
 nd-snooping enable
-mac-address-table age-time 60
 access-list ipv6 sec
-100 deny 60 any any count
-110 deny 4 any any count
-300 permit any 2001:db8:20::/64 2001:db8:d1::/64
-310 permit icmpv6 2001:db8:20::/64 2001:db8:20::/64 icmp-type echo
+100 permit any 2001:db8:20::/64 2001:db8:d1::/64
+110 permit icmpv6 2001:db8:20::/64 2001:db8:20::/64 icmp-type echo
 exit
 vlan 20
 nd-snooping
