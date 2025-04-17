@@ -1,4 +1,5 @@
 conf t
+mac-address-table age-time 60
 nd-snooping enable
 port-access port-security enable
 access-list ipv6 sec
