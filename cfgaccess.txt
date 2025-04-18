@@ -36,7 +36,7 @@ mac-address-table age-time 60
 interface 1/1/2-1/1/5
 ipv6 source-lockdown
 port-access port-security enable
-port-access port-security client limit 2
+port-access port-security client-limit 2
 shutdown
 no shutdown
 exit
