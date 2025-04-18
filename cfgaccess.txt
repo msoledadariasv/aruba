@@ -1,28 +1,42 @@
 conf t
-mac-address-table age-time 60
-nd-snooping enable
+ip icmp throttle 1000
+no ip icmp unreachable
 port-access port-security enable
-access-list ipv6 sec
-100 permit any 2001:db8:20::/64 2001:db8:d1::/64
-110 permit icmpv6 2001:db8:20::/64 2001:db8:20::/64 icmp-type echo
-120 deny icmpv6 any any icmp-type 1 log
-130 deny icmpv6 any any icmp-type 2 log
-140 deny icmpv6 any any icmp-type 3 log
-exit
+interface 1/1/1
 vlan 20
-nd-snooping
+shutdown
+no shutdown
 exit
 interface 1/1/1
 no routing
-vlan trunk native 20
-nd-snooping trust
+vlan access 20
+shutdown
 no shutdown
 exit
 interface 1/1/2-1/1/5
 no routing
 vlan access 20
+shutdown
+no shutdown
+exit
+nd-snooping enable
+vlan 20
+nd-snooping
+ipv6 destination-guard
+ipv6 source-lockdown
+shutdown
+no shutdown
+exit
+interface 1/1/1
+nd-snooping trust
+shutdown
+no shutdown
+exit
+mac-address-table age-time 60
+interface 1/1/2-1/1/5
+ipv6 source-lockdown
 port-access port-security enable
-port-access port-security client-limit 2
-apply access-list ipv6 sec in
+port-access port-security client limit 2
+shutdown
 no shutdown
 exit
